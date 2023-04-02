@@ -8,22 +8,30 @@
 import Foundation
 import SwiftUI
 
-class WebTab: Hashable, Identifiable, ObservableObject, CustomStringConvertible {
-    var description: String {
-        return (title ?? urlRequest.url?.absoluteString) ?? "n/a"
-    }
+class WebTab: Identifiable, ObservableObject {
+    @Published
+    var faviconImage: WKImage? = nil
 
-    var id = UUID()
+    @Published
+    var title: String? = nil
+
+    @Published
+    var children: [WebTab]? = nil
+
+    @Published
+    var faviconColorTint: Color? = [
+        .blue,
+        Color(.brown),
+        .green,
+        .red,
+        .pink,
+    ].randomElement()!
+
+    let id = UUID()
 
     var timestamp = Date()
 
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-
-    static func == (lhs: WebTab, rhs: WebTab) -> Bool {
-        lhs.id == rhs.id
-    }
+    let urlRequest: URLRequest
 
     init(urlRequest: URLRequest) {
         self.urlRequest = urlRequest
@@ -36,26 +44,6 @@ class WebTab: Hashable, Identifiable, ObservableObject, CustomStringConvertible 
         self.children = children
         setDefaultFavIcon()
     }
-
-    @Published
-    var title: String? = nil
-
-    @Published
-    var faviconColorTint: Color? = [
-        .blue,
-        Color(.brown),
-        .green,
-        .red,
-        .pink,
-    ].randomElement()!
-
-    @Published
-    var faviconImage: WKImage? = nil
-
-    let urlRequest: URLRequest
-
-    @Published
-    var children: [WebTab]? = nil
 
     func addChild(_ child: WebTab) {
         var newChildren = children ?? []
