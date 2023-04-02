@@ -24,18 +24,17 @@ struct SidePanelView: View {
                 WebTabTreeView()
             }
             Spacer()
-            TextField("url", text: $goTo)
+            TextField("url", text: $goTo) {
+                if let request = WebTabsViewModel.requestFrom(goTo) {
+                    webTabsViewModel.openTab(request: request, fromTab: nil)
+                    goTo = ""
+                    isSidebarVisible = false
+                }
+            }
 #if os(iOS) || os(watchOS) || os(tvOS)
                 .keyboardType(.URL)
 #endif
                 .autocorrectionDisabled(true)
-//                .onSubmit {
-//                    if let request = WebTabsViewModel.requestFrom(goTo) {
-//                        webTabsViewModel.openTab(request: request, fromTab: nil)
-//                        goTo = ""
-//                        isSidebarVisible = false
-//                    }
-//                }
                 .padding(5)
 //                .background(.white)
                 .foregroundColor(.black)
