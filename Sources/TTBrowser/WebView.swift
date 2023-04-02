@@ -20,11 +20,11 @@ private let log = MakeLogger()
 
         var tab: WebTab
 
-        func makeUIView(context _: Context) -> WKWebView {
-            return WKWebView()
+        func makeUIView(context _: Context) -> TTWebView {
+            return TTWebView()
         }
 
-        func updateUIView(_ webView: WKWebView, context: Context) {
+        func updateUIView(_ webView: TTWebView, context: Context) {
             updateCoordinatorAndReloadIfNeccessary(webView, coordinator: context.coordinator)
 
         }
@@ -38,13 +38,13 @@ private let log = MakeLogger()
 
         var tab: WebTab
 
-        func makeNSView(context _: Context) -> WKWebView {
+        func makeNSView(context _: Context) -> TTWebView {
             log.trace("makeNSView(context _: Context)")
 
-            return WKWebView()
+            return TTWebView()
         }
 
-        func updateNSView(_ webView: WKWebView, context: Context) {
+        func updateNSView(_ webView: TTWebView, context: Context) {
             updateCoordinatorAndReloadIfNeccessary(webView, coordinator: context.coordinator)
 
 
@@ -62,7 +62,7 @@ extension WebView {
 }
 
 extension WebView {
-    func updateCoordinatorAndReloadIfNeccessary(_ webView: WKWebView, coordinator:WebViewCoordinator) {
+    func updateCoordinatorAndReloadIfNeccessary(_ webView: TTWebView, coordinator:WebViewCoordinator) {
         webView.uiDelegate = coordinator
         webView.navigationDelegate = coordinator
 

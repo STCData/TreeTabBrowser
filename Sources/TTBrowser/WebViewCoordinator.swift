@@ -47,7 +47,12 @@ class WebViewCoordinator: NSObject, WKUIDelegate {
 }
 
 extension WebViewCoordinator: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
+    @MainActor func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
+       
+        if let ttWebView = webView as? TTWebView {
+            ttWebView.appearAnimated()
+        }
+        
         guard let webTab = tab, 
               let title = webView.title else { return }
 

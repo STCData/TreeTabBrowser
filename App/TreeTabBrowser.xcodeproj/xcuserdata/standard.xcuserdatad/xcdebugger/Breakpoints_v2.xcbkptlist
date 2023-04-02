@@ -62,42 +62,26 @@
             filePath = "../Sources/TTBrowser/WebViewCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C602CB6E-CC20-4685-98D0-26ED2B10D9A4 - beba207b84cc030"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TTBrowser.WebViewCoordinator.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
-                  moduleName = "TreeTabBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/standard/STCData/TreeTabBrowser/Sources/TTBrowser/WebViewCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "1200">
-               </Location>
-               <Location
-                  uuid = "C602CB6E-CC20-4685-98D0-26ED2B10D9A4 - 44bf1dc362a39613"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in TTBrowser.WebViewCoordinator.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, decisionHandler: (__C.WKNavigationActionPolicy) -&gt; ()) -&gt; ()"
-                  moduleName = "TreeTabBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/standard/STCData/TreeTabBrowser/Sources/TTBrowser/WebViewCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4541C661-2357-4DCB-848F-1D46EC999BB6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Sources/TTBrowser/WebViewCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "webView(_:didFinish:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
