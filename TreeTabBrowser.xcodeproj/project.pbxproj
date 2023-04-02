@@ -45,6 +45,7 @@
 		9AE7B17129D966BD00314E3C /* TreeTabBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreeTabBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE7B17529D966BD00314E3C /* TreeTabBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTabBrowserUITests.swift; sourceTree = "<group>"; };
 		9AE7B17729D966BD00314E3C /* TreeTabBrowserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTabBrowserUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9AE7B18529D9671D00314E3C /* TTBrowser */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TTBrowser; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		9AE7B14D29D966BC00314E3C = {
 			isa = PBXGroup;
 			children = (
+				9AE7B18529D9671D00314E3C /* TTBrowser */,
 				9AE7B15829D966BC00314E3C /* TreeTabBrowser */,
 				9AE7B16A29D966BD00314E3C /* TreeTabBrowserTests */,
 				9AE7B17429D966BD00314E3C /* TreeTabBrowserUITests */,
