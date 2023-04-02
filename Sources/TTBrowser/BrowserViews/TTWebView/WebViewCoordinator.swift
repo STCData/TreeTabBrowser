@@ -59,7 +59,8 @@ extension WebViewCoordinator: WKNavigationDelegate {
     }
 
     func webView(_: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if navigationAction.navigationType == WKNavigationType.linkActivated && !isInitialLoad {
+        print("navigatio")
+        if (navigationAction.navigationType == .linkActivated) && !isInitialLoad {
             let url = navigationAction.request.url
             log.info("🌐 \(url?.absoluteString ?? "n/a")")
 

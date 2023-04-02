@@ -7,6 +7,25 @@
 
 import SwiftUI
 
+struct DisclosureGroupOld<Label, Content>: View where Label: View, Content: View {
+    var isExpanded: Binding<Bool>
+
+    @ViewBuilder
+    var content: () -> Content
+
+    @ViewBuilder
+    var label: () -> Label
+
+    var body: some View {
+        VStack {
+            label()
+            if isExpanded.wrappedValue {
+                content()
+            }
+        }
+    }
+}
+
 struct DisclosureGroupCompat<Label, Content>: View where Label: View, Content: View {
     var isExpanded: Binding<Bool>
 
@@ -21,12 +40,7 @@ struct DisclosureGroupCompat<Label, Content>: View where Label: View, Content: V
             return DisclosureGroup(isExpanded: isExpanded, content: content, label: label)
 
         } else {
-            return HStack {
-                label()
-                if isExpanded.wrappedValue {
-                    content()
-                }
-            }
+            return DisclosureGroupOld(isExpanded: isExpanded, content: content, label: label)
         }
     }
 }
