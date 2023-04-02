@@ -14,13 +14,6 @@ private let sfDefaultFavicons = [
     "globe.central.south.asia.fill",
 ]
 
-#if os(macOS)
-    extension WKImage {
-        convenience init?(systemName: String) {
-            self.init(systemSymbolName: systemName, accessibilityDescription: systemName)
-        }
-    }
-#endif
 extension WebTab {
     func setDefaultFavIcon() {
         faviconImage = WKImage(systemName: sfDefaultFavicons.randomElement()!)

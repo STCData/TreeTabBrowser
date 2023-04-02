@@ -8,44 +8,6 @@
 import Foundation
 import SwiftUI
 
-#if os(iOS) || os(watchOS) || os(tvOS)
-    import UIKit
-    typealias WKImage = UIImage
-
-    extension Image {
-        init(wkImage: WKImage) {
-            self.init(uiImage: wkImage)
-        }
-    }
-
-    typealias WKColor = UIColor
-
-    extension Color {
-        init(wkColor: WKColor) {
-            self.init(wkColor)
-        }
-    }
-
-#elseif os(macOS)
-    import AppKit
-    typealias WKImage = NSImage
-
-    extension Image {
-        init(wkImage: WKImage) {
-            self.init(nsImage: wkImage)
-        }
-    }
-
-    typealias WKColor = NSColor
-
-    extension Color {
-        init(wkColor: WKColor) {
-            self.init(nsColor: wkColor)
-        }
-    }
-
-#endif
-
 class WebTab: Hashable, Identifiable, ObservableObject, CustomStringConvertible {
     var description: String {
         return (title ?? urlRequest.url?.absoluteString) ?? "n/a"
