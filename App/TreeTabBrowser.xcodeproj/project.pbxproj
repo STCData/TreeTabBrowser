@@ -15,6 +15,7 @@
 		9AE7B17629D966BD00314E3C /* TreeTabBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7B17529D966BD00314E3C /* TreeTabBrowserUITests.swift */; };
 		9AE7B17829D966BD00314E3C /* TreeTabBrowserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7B17729D966BD00314E3C /* TreeTabBrowserUITestsLaunchTests.swift */; };
 		9AE7B18A29D9693B00314E3C /* TTBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = 9AE7B18929D9693B00314E3C /* TTBrowser */; };
+		9AE7B18E29D9810000314E3C /* TTBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = 9AE7B18D29D9810000314E3C /* TTBrowser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AE7B18A29D9693B00314E3C /* TTBrowser in Frameworks */,
+				9AE7B18E29D9810000314E3C /* TTBrowser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +159,7 @@
 			name = TreeTabBrowser;
 			packageProductDependencies = (
 				9AE7B18929D9693B00314E3C /* TTBrowser */,
+				9AE7B18D29D9810000314E3C /* TTBrowser */,
 			);
 			productName = TreeTabBrowser;
 			productReference = 9AE7B15629D966BC00314E3C /* TreeTabBrowser.app */;
@@ -230,6 +233,9 @@
 				Base,
 			);
 			mainGroup = 9AE7B14D29D966BC00314E3C;
+			packageReferences = (
+				9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "TreeTabBrowser" */,
+			);
 			productRefGroup = 9AE7B15729D966BC00314E3C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -626,9 +632,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "TreeTabBrowser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "file:///Users/standard/STCData/TreeTabBrowser";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		9AE7B18929D9693B00314E3C /* TTBrowser */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = TTBrowser;
+		};
+		9AE7B18D29D9810000314E3C /* TTBrowser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "TreeTabBrowser" */;
 			productName = TTBrowser;
 		};
 /* End XCSwiftPackageProductDependency section */
