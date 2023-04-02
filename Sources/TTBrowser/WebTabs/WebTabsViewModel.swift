@@ -30,10 +30,10 @@ import SwiftUI
 
 class WebTabsViewModel: ObservableObject {
     private let maximumLoadedTabs = 3
-    
+
     @Published
     var tabs: [WebTab] = []
-    
+
     @Published
     var loadedTabs: [WebTab] = []
 
@@ -42,7 +42,7 @@ class WebTabsViewModel: ObservableObject {
 
     init(tabs: [WebTab]) {
         self.tabs = tabs
-        self.loadedTabs = tabs
+        loadedTabs = tabs
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleWebViewDetailsLoadedNotification(_:)), name: .WebViewDetailsLoaded, object: nil)
     }
@@ -87,12 +87,12 @@ class WebTabsViewModel: ObservableObject {
         } else {
             tabs.append(newTab)
         }
-        
+
         addToLoadedTabs(newTab)
-        
+
         selectTab(newTab)
     }
-    
+
     func addToLoadedTabs(_ tab: WebTab) {
         var newLoadedTabs = loadedTabs
         newLoadedTabs.append(tab)
@@ -121,5 +121,3 @@ class WebTabsViewModel: ObservableObject {
         return URLRequest(url: url)
     }
 }
-
-

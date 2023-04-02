@@ -12,39 +12,37 @@ import SwiftUI
     import UIKit
     typealias WKImage = UIImage
 
-extension Image {
-    init(wkImage: WKImage) {
-        self.init(uiImage:wkImage)
+    extension Image {
+        init(wkImage: WKImage) {
+            self.init(uiImage: wkImage)
+        }
     }
-}
 
+    typealias WKColor = UIColor
 
-typealias WKColor = UIColor
-
-extension Color {
-init(wkColor: WKColor) {
-    self.init(wkColor)
-}
-}
-
+    extension Color {
+        init(wkColor: WKColor) {
+            self.init(wkColor)
+        }
+    }
 
 #elseif os(macOS)
     import AppKit
     typealias WKImage = NSImage
 
-extension Image {
-    init(wkImage: WKImage) {
-        self.init(nsImage:wkImage)
+    extension Image {
+        init(wkImage: WKImage) {
+            self.init(nsImage: wkImage)
+        }
     }
-}
 
-typealias WKColor = NSColor
+    typealias WKColor = NSColor
 
-extension Color {
-init(wkColor: WKColor) {
-    self.init(nsColor:wkColor)
-}
-}
+    extension Color {
+        init(wkColor: WKColor) {
+            self.init(nsColor: wkColor)
+        }
+    }
 
 #endif
 
@@ -54,9 +52,9 @@ class WebTab: Hashable, Identifiable, ObservableObject, CustomStringConvertible 
     }
 
     var id = UUID()
-    
+
     var timestamp = Date()
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
@@ -128,7 +126,3 @@ extension WebTab {
         return nil
     }
 }
-
-
-
-

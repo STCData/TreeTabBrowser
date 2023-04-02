@@ -10,8 +10,6 @@ import SwiftUI
 import WebKit
 private let log = MakeLogger()
 
-
-
 #if os(iOS) || os(watchOS) || os(tvOS)
 
     struct WebView: UIViewRepresentable {
@@ -26,7 +24,6 @@ private let log = MakeLogger()
 
         func updateUIView(_ webView: TTWebView, context: Context) {
             updateCoordinatorAndReloadIfNeccessary(webView, coordinator: context.coordinator)
-
         }
     }
 
@@ -46,8 +43,6 @@ private let log = MakeLogger()
 
         func updateNSView(_ webView: TTWebView, context: Context) {
             updateCoordinatorAndReloadIfNeccessary(webView, coordinator: context.coordinator)
-
-
         }
     }
 
@@ -62,7 +57,7 @@ extension WebView {
 }
 
 extension WebView {
-    func updateCoordinatorAndReloadIfNeccessary(_ webView: TTWebView, coordinator:WebViewCoordinator) {
+    func updateCoordinatorAndReloadIfNeccessary(_ webView: TTWebView, coordinator: WebViewCoordinator) {
         webView.uiDelegate = coordinator
         webView.navigationDelegate = coordinator
 
@@ -70,12 +65,10 @@ extension WebView {
             coordinator.tab = tab
             DispatchQueue.main.async {
                 webView.load(request)
-
             }
         }
     }
 }
-
 
 extension WebView {
     func makeCoordinator() -> WebViewCoordinator {

@@ -8,10 +8,6 @@
 import Foundation
 import SwiftUI
 
-
-
-
-
 struct WebTabTreeItemInner: View {
     let faviconSize = 16.0
     @EnvironmentObject
@@ -52,9 +48,6 @@ struct WebTabTreeItemInner: View {
         }
     }
 }
-
-
-
 
 struct WebTabTreeItem: View {
     @State var isExpanded: Bool = true

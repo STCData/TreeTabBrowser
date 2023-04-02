@@ -5,8 +5,8 @@
 //  Created by standard on 3/18/23.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 extension View {
     /// A backwards compatible wrapper for iOS 14 `onChange`
@@ -14,14 +14,12 @@ extension View {
         if #available(iOS 14.0, *) {
             self.onChange(of: value, perform: onChange)
         } else {
-            self.onReceive(Just(value)) { (value) in
+            onReceive(Just(value)) { value in
                 onChange(value)
             }
         }
     }
 }
-
-
 
 extension View {
     /// Applies the given transform if the given condition evaluates to `true`.

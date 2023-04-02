@@ -1,12 +1,11 @@
 //
 //  WebTab+BlankPages.swift
-//  
+//
 //
 //  Created by standard on 4/2/23.
 //
 
 import Foundation
-
 
 extension WebTab {
     static let blankPageURL1 = URL(string: "https://www.google.com/?client=safari")!

@@ -15,11 +15,11 @@ private let sfDefaultFavicons = [
 ]
 
 #if os(macOS)
-extension WKImage {
-    convenience init?(systemName: String) {
-        self.init(systemSymbolName: systemName, accessibilityDescription: systemName)
+    extension WKImage {
+        convenience init?(systemName: String) {
+            self.init(systemSymbolName: systemName, accessibilityDescription: systemName)
+        }
     }
-}
 #endif
 extension WebTab {
     func setDefaultFavIcon() {

@@ -12,11 +12,10 @@ private let log = MakeLogger()
 
 class WebViewCoordinator: NSObject, WKUIDelegate {
     weak var tabsViewModel: WebTabsViewModel?
-    
-    weak var tab: WebTab?
-    
-    private var isInitialLoad = true
 
+    weak var tab: WebTab?
+
+    private var isInitialLoad = true
 
     var parent: WebView
 
@@ -27,33 +26,30 @@ class WebViewCoordinator: NSObject, WKUIDelegate {
     // Delegate methods go here
 
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame _: WKFrameInfo, completionHandler: @escaping () -> Void) {
-#if os(iOS) || os(watchOS) || os(tvOS)
+        #if os(iOS) || os(watchOS) || os(tvOS)
 
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            completionHandler()
-        }
-        alertController.addAction(okAction)
-        DispatchQueue.main.async {
-            webView.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-        }
-#elseif os(macOS)
-#else
+            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                completionHandler()
+            }
+            alertController.addAction(okAction)
+            DispatchQueue.main.async {
+                webView.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
+        #elseif os(macOS)
+        #else
 
-#endif
-
-
+        #endif
     }
 }
 
 extension WebViewCoordinator: WKNavigationDelegate {
     @MainActor func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
-       
         if let ttWebView = webView as? TTWebView {
             ttWebView.appearAnimated()
         }
-        
-        guard let webTab = tab, 
+
+        guard let webTab = tab,
               let title = webView.title else { return }
 
         NotificationCenter.default.post(name: .WebViewDetailsLoaded, object: nil, userInfo: [

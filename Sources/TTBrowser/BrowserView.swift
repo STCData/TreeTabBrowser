@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-
-
 public struct BrowserView: View {
-
     @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [
         WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL1)),
         WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL2)),
@@ -26,37 +23,32 @@ public struct BrowserView: View {
 
     private static let unsafeAreaColorDefault = Color.black.opacity(0.96)
     private static let unsafeAreaColorTapped = Color.white
-    
-    
+
     static var sidebarOpenedWidth: Double {
-#if os(iOS) || os(watchOS) || os(tvOS)
-        UIScreen.main.bounds.size.width * 0.99
-#else
-        300.0
-#endif
-    }
-    
-    
-    static var sidebarOpenedWebviewPaddingLeading: Double {
-#if os(iOS) || os(watchOS) || os(tvOS)
-        0.0
-#else
-        sidebarOpenedWidth
-#endif
-    }
-    
-    static var sidebarOpenedBlur: Double {
-#if os(iOS) || os(watchOS) || os(tvOS)
-        13.0
-#else
-        0.0
-#endif
+        #if os(iOS) || os(watchOS) || os(tvOS)
+            UIScreen.main.bounds.size.width * 0.99
+        #else
+            300.0
+        #endif
     }
 
-    
-    public init() {
-        
+    static var sidebarOpenedWebviewPaddingLeading: Double {
+        #if os(iOS) || os(watchOS) || os(tvOS)
+            0.0
+        #else
+            sidebarOpenedWidth
+        #endif
     }
+
+    static var sidebarOpenedBlur: Double {
+        #if os(iOS) || os(watchOS) || os(tvOS)
+            13.0
+        #else
+            0.0
+        #endif
+    }
+
+    public init() {}
 
     public var body: some View {
         ZStack(alignment: .top) {
@@ -81,7 +73,6 @@ public struct BrowserView: View {
                         withAnimation {
                             webViewBlurRadius = Self.sidebarOpenedBlur
                             webViewPaddingLeading = Self.sidebarOpenedWebviewPaddingLeading
-                            
                         }
                     } else {
                         withAnimation {
@@ -90,7 +81,6 @@ public struct BrowserView: View {
                         }
                     }
                 })
-
 
             // UIScreen.main.bounds.size.width * 0.9
             SlideoutView(
@@ -112,12 +102,10 @@ public struct BrowserView: View {
                 Button(action: {
                     isSideBarOpened.toggle()
                 }, label: {})
-                .keyboardShortcut("g", modifiers: .command)
+                    .keyboardShortcut("g", modifiers: .command)
             } else {
                 // Fallback on earlier versions
             }
- 
- 
         }
         .environmentObject(webTabsViewModel)
 //        .padding(.top, 30)

@@ -31,15 +31,15 @@ struct SidePanelView: View {
                     isSidebarVisible = false
                 }
             }
-#if os(iOS) || os(watchOS) || os(tvOS)
-                .keyboardType(.URL)
-#endif
-                .autocorrectionDisabled(true)
-                .padding(5)
+            #if os(iOS) || os(watchOS) || os(tvOS)
+            .keyboardType(.URL)
+            #endif
+            .autocorrectionDisabled(true)
+            .padding(5)
 //                .background(.white)
-                .foregroundColor(.black)
-                .cornerRadius(7)
-                .autocorrectionDisabled(true)
+            .foregroundColor(.black)
+            .cornerRadius(7)
+            .autocorrectionDisabled(true)
 //                .focused($isTextFieldFocused)
 //                .onChange(of: isSidebarVisible) { newValue in
 //                    if newValue {
