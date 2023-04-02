@@ -80,6 +80,6 @@ struct FloatingAtCorner<Content: View>: View {
         .padding(.bottom, 32)
         .padding(.trailing, 4)
 
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.all)
     }
 }

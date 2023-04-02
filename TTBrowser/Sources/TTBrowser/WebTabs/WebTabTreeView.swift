@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+
+
+
+
 struct WebTabTreeItemInner: View {
     let faviconSize = 16.0
     @EnvironmentObject
@@ -19,7 +23,7 @@ struct WebTabTreeItemInner: View {
     var body: some View {
         HStack {
             if let image = tab.faviconImage {
-                Image(uiImage: image)
+                Image(wkImage: image)
                     .resizable()
                     .if(tab.faviconColorTint != nil) {
                         $0.renderingMode(.template)
@@ -33,7 +37,7 @@ struct WebTabTreeItemInner: View {
                 .multilineTextAlignment(.leading)
         }
         .padding(3)
-        .if(tab == webTabsViewModel.currentTab) { $0.background(Color(uiColor: .systemGray6))
+        .if(tab == webTabsViewModel.currentTab) { $0.background(Color(wkColor: .systemGray))
         }
         .cornerRadius(4)
         .onTapGesture {
@@ -56,7 +60,7 @@ struct WebTabTreeItem: View {
 
     var body: some View {
         if tab[keyPath: childKeyPath] != nil {
-            DisclosureGroup(
+            DisclosureGroupCompat(
                 isExpanded: $isExpanded,
                 content: {
                     ForEach(tab[keyPath: childKeyPath]!) { childNode in
@@ -71,7 +75,7 @@ struct WebTabTreeItem: View {
                     WebTabTreeItemInner(tab: tab)
                 }
             )
-            .tint(.black)
+//            .tint(.black)
 
         } else {
             WebTabTreeItemInner(tab: tab)

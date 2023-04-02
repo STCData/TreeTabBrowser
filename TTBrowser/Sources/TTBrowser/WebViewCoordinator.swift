@@ -8,7 +8,7 @@
 import Logging
 import SwiftUI
 import WebKit
-private let log = LogLabels.webview.makeLogger()
+private let log = MakeLogger()
 
 class WebViewCoordinator: NSObject, WKUIDelegate {
     weak var tabsViewModel: WebTabsViewModel?
@@ -22,6 +22,8 @@ class WebViewCoordinator: NSObject, WKUIDelegate {
     // Delegate methods go here
 
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame _: WKFrameInfo, completionHandler: @escaping () -> Void) {
+#if os(iOS) || os(watchOS) || os(tvOS)
+
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             completionHandler()
@@ -30,6 +32,12 @@ class WebViewCoordinator: NSObject, WKUIDelegate {
         DispatchQueue.main.async {
             webView.window?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
+#elseif os(macOS)
+#else
+
+#endif
+
+
     }
 }
 

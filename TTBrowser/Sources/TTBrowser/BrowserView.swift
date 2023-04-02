@@ -14,8 +14,7 @@ struct TabbedWebView: View {
     }
 }
 
-struct BrowserView: View {
-    @State private var isVisionViewShown = true
+public struct BrowserView: View {
 
     @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL))])
     @State private var isSideBarOpened = false
@@ -27,33 +26,43 @@ struct BrowserView: View {
 
     private static let unsafeAreaColorDefault = Color.black.opacity(0.96)
     private static let unsafeAreaColorTapped = Color.white
+    
+    
+    static var sidebarOpenedWidth: Double {
+#if os(iOS) || os(watchOS) || os(tvOS)
+        UIScreen.main.bounds.size.width * 0.99
+#else
+        300.0
+#endif
+    }
+    
+    public init() {
+        
+    }
 
-    var body: some View {
+    public var body: some View {
         ZStack(alignment: .top) {
-            Color(.white)
-                .colorMultiply(self.unsafeAreaColor)
-                .ignoresSafeArea()
-                .accessibilityIgnoresInvertColors(true)
-                .allowsHitTesting(false)
+            if #available(iOS 14.0, *) {
+                Color(.white)
+                    .colorMultiply(self.unsafeAreaColor)
+                    .ignoresSafeArea()
+                    .accessibilityIgnoresInvertColors(true)
+                    .allowsHitTesting(false)
+            } else {
+                Color(.white)
+                    .colorMultiply(self.unsafeAreaColor)
+                    .allowsHitTesting(false)
+            }
 
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
                 .blur(radius: webViewBlurRadius)
-                .onChange(of: isSideBarOpened, perform: { value in
+                .valueChanged(of: isSideBarOpened, perform: { value in
                     if value {
                         withAnimation { webViewBlurRadius = 13 }
                     } else {
                         withAnimation { webViewBlurRadius = 0 }
                     }
                 })
-
-            VoiceAssistantView()
-                .frame(maxWidth: .infinity)
-
-            if isVisionViewShown {
-                VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.broadcastPool.observationsSubject
-                        .debounce(for: .seconds(0.1), scheduler: RunLoop.main)))
-                    .opacity(0.6)
-            }
 
             FloatingAtCorner(alignment: .topLeading) {
                 Button {
@@ -72,15 +81,15 @@ struct BrowserView: View {
                         .frame(width: 70)
                         .frame(height: 70)
                 }
-                .ignoresSafeArea()
+                .edgesIgnoringSafeArea(.all)
             }
-            .ignoresSafeArea()
+            .edgesIgnoringSafeArea(.all)
 
             // UIScreen.main.bounds.size.width * 0.9
             SlideoutView(
                 opacity: 0.8,
-                isSidebarVisible: $isSideBarOpened, sideBarWidth: UIScreen.main.bounds.size.width * 0.99,
-                bgColor: Color(uiColor: .systemGray6).opacity(0.89),
+                isSidebarVisible: $isSideBarOpened, sideBarWidth: Self.sidebarOpenedWidth,
+                bgColor: .gray.opacity(0.89),
                 shadowColor: .clear // .black.opacity(0.9)
             ) {
                 SidePanelView(isSidebarVisible: $isSideBarOpened)
@@ -92,18 +101,18 @@ struct BrowserView: View {
                 }, icon: "square.on.square", width: 64, height: 64, cornerRadius: 12)
             }
 
-            Button(action: {
-                isSideBarOpened.toggle()
-            }, label: {})
+            if #available(iOS 14.0, *) {
+                Button(action: {
+                    isSideBarOpened.toggle()
+                }, label: {})
                 .keyboardShortcut("g", modifiers: .command)
-            Button {
-                isVisionViewShown.toggle()
-            } label: {}
-                .keyboardShortcut("o", modifiers: .command)
+            } else {
+                // Fallback on earlier versions
+            }
         }
         .environmentObject(webTabsViewModel)
 //        .padding(.top, 30)
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

@@ -13,7 +13,7 @@ struct SidePanelView: View {
     var goTo: String = ""
     @Binding var isSidebarVisible: Bool
 
-    @FocusState var isTextFieldFocused: Bool
+//    @FocusState var isTextFieldFocused: Bool
 
     @EnvironmentObject
     var webTabsViewModel: WebTabsViewModel
@@ -25,26 +25,28 @@ struct SidePanelView: View {
             }
             Spacer()
             TextField("url", text: $goTo)
+#if os(iOS) || os(watchOS) || os(tvOS)
                 .keyboardType(.URL)
+#endif
                 .autocorrectionDisabled(true)
-                .onSubmit {
-                    if let request = WebTabsViewModel.requestFrom(goTo) {
-                        webTabsViewModel.openTab(request: request, fromTab: nil)
-                        goTo = ""
-                        isSidebarVisible = false
-                    }
-                }
+//                .onSubmit {
+//                    if let request = WebTabsViewModel.requestFrom(goTo) {
+//                        webTabsViewModel.openTab(request: request, fromTab: nil)
+//                        goTo = ""
+//                        isSidebarVisible = false
+//                    }
+//                }
                 .padding(5)
-                .background(.white)
+//                .background(.white)
                 .foregroundColor(.black)
                 .cornerRadius(7)
                 .autocorrectionDisabled(true)
-                .focused($isTextFieldFocused)
-                .onChange(of: isSidebarVisible) { newValue in
-                    if newValue {
-                        isTextFieldFocused = true
-                    }
-                }
+//                .focused($isTextFieldFocused)
+//                .onChange(of: isSidebarVisible) { newValue in
+//                    if newValue {
+//                        isTextFieldFocused = true
+//                    }
+//                }
         }
         .adaptsToKeyboard()
     }

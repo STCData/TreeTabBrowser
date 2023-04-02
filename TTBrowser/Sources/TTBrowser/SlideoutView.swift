@@ -36,10 +36,8 @@ struct SlideoutView<Content: View>: View {
             .onTapGesture {
                 isSidebarVisible.toggle()
             }
-            let layout = horizontal ?
-                AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
 
-            layout {
+            HStack {
                 ZStack(alignment: .top) {
                     bgColor
 

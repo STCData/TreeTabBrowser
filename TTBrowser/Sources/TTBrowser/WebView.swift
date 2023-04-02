@@ -8,7 +8,7 @@
 import Logging
 import SwiftUI
 import WebKit
-private let log = LogLabels.webview.makeLogger()
+private let log = MakeLogger()
 
 #if os(iOS) || os(watchOS) || os(tvOS)
 

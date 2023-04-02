@@ -14,6 +14,7 @@
 		9AE7B16C29D966BD00314E3C /* TreeTabBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7B16B29D966BD00314E3C /* TreeTabBrowserTests.swift */; };
 		9AE7B17629D966BD00314E3C /* TreeTabBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7B17529D966BD00314E3C /* TreeTabBrowserUITests.swift */; };
 		9AE7B17829D966BD00314E3C /* TreeTabBrowserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7B17729D966BD00314E3C /* TreeTabBrowserUITestsLaunchTests.swift */; };
+		9AE7B18A29D9693B00314E3C /* TTBrowser in Frameworks */ = {isa = PBXBuildFile; productRef = 9AE7B18929D9693B00314E3C /* TTBrowser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE7B18A29D9693B00314E3C /* TTBrowser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +83,7 @@
 				9AE7B16A29D966BD00314E3C /* TreeTabBrowserTests */,
 				9AE7B17429D966BD00314E3C /* TreeTabBrowserUITests */,
 				9AE7B15729D966BC00314E3C /* Products */,
+				9AE7B18829D9693B00314E3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +134,13 @@
 			path = TreeTabBrowserUITests;
 			sourceTree = "<group>";
 		};
+		9AE7B18829D9693B00314E3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +157,9 @@
 			dependencies = (
 			);
 			name = TreeTabBrowser;
+			packageProductDependencies = (
+				9AE7B18929D9693B00314E3C /* TTBrowser */,
+			);
 			productName = TreeTabBrowser;
 			productReference = 9AE7B15629D966BC00314E3C /* TreeTabBrowser.app */;
 			productType = "com.apple.product-type.application";
@@ -431,7 +444,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -469,7 +482,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -614,6 +627,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9AE7B18929D9693B00314E3C /* TTBrowser */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TTBrowser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9AE7B14E29D966BC00314E3C /* Project object */;
 }
