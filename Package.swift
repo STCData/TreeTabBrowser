@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "TTBrowser",
     platforms: [
-        .macOS(.v13),
+        .macOS(.v12),
         .iOS(.v13),
 
     ],

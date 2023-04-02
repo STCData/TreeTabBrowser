@@ -234,7 +234,7 @@
 			);
 			mainGroup = 9AE7B14D29D966BC00314E3C;
 			packageReferences = (
-				9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "TreeTabBrowser" */,
+				9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "/" */,
 			);
 			productRefGroup = 9AE7B15729D966BC00314E3C /* Products */;
 			projectDirPath = "";
@@ -451,7 +451,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.standard.TreeTabBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -489,7 +489,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.standard.TreeTabBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -633,7 +633,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "TreeTabBrowser" */ = {
+		9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "/" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "file://../";
 			requirement = {
@@ -650,7 +650,7 @@
 		};
 		9AE7B18D29D9810000314E3C /* TTBrowser */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "TreeTabBrowser" */;
+			package = 9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "/" */;
 			productName = TTBrowser;
 		};
 /* End XCSwiftPackageProductDependency section */
