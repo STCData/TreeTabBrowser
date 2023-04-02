@@ -48,15 +48,11 @@ struct FloatingButton: View {
     static let disabledColor: Color = .black.opacity(defaultOpacity)
     static let recColor: Color = .red.opacity(defaultOpacity)
     var body: some View {
-//        ZStack {
-        Button(action: {}) {
+        Button(action: action) {
             Image(systemName: icon)
                 .font(.system(size: 25))
                 .foregroundColor(color)
                 .frame(width: width, height: height)
-
-                .modifier(TapAndLongPressModifier(tapAction: { self.action() },
-                                                  longPressAction: { self.longTapAction() }))
         }
         .background(Color.gray.opacity(defaultOpacity / 4))
         .cornerRadius(cornerRadius)

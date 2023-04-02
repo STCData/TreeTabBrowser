@@ -36,6 +36,15 @@ public struct BrowserView: View {
 #endif
     }
     
+    static var sidebarOpenedBlur: Double {
+#if os(iOS) || os(watchOS) || os(tvOS)
+        13.0
+#else
+        0.0
+#endif
+    }
+
+    
     public init() {
         
     }
@@ -52,38 +61,19 @@ public struct BrowserView: View {
                 Color(.white)
                     .colorMultiply(self.unsafeAreaColor)
                     .allowsHitTesting(false)
+                    .edgesIgnoringSafeArea(.all)
             }
 
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
                 .blur(radius: webViewBlurRadius)
                 .valueChanged(of: isSideBarOpened, perform: { value in
                     if value {
-                        withAnimation { webViewBlurRadius = 13 }
+                        withAnimation { webViewBlurRadius = Self.sidebarOpenedBlur }
                     } else {
                         withAnimation { webViewBlurRadius = 0 }
                     }
                 })
 
-            FloatingAtCorner(alignment: .topLeading) {
-                Button {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        self.unsafeAreaColor = BrowserView.unsafeAreaColorTapped
-                    }
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                        withAnimation(Animation.easeOut(duration: 0.2)) {
-                            self.unsafeAreaColor = BrowserView.unsafeAreaColorDefault
-                        }
-                    }
-
-                } label: {
-                    Color(.clear)
-                        .frame(width: 70)
-                        .frame(height: 70)
-                }
-                .edgesIgnoringSafeArea(.all)
-            }
-            .edgesIgnoringSafeArea(.all)
 
             // UIScreen.main.bounds.size.width * 0.9
             SlideoutView(
@@ -109,6 +99,8 @@ public struct BrowserView: View {
             } else {
                 // Fallback on earlier versions
             }
+ 
+ 
         }
         .environmentObject(webTabsViewModel)
 //        .padding(.top, 30)

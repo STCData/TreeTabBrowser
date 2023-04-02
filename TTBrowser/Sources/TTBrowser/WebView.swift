@@ -10,6 +10,8 @@ import SwiftUI
 import WebKit
 private let log = MakeLogger()
 
+
+
 #if os(iOS) || os(watchOS) || os(tvOS)
 
     struct WebView: UIViewRepresentable {
@@ -25,7 +27,6 @@ private let log = MakeLogger()
         func updateUIView(_ webView: WKWebView, context: Context) {
             webView.uiDelegate = context.coordinator
             webView.navigationDelegate = context.coordinator
-//
 
             DispatchQueue.main.async {
                 webView.load(request)
@@ -42,8 +43,9 @@ private let log = MakeLogger()
         var request: URLRequest
 
         func makeNSView(context _: Context) -> WKWebView {
-            return WKWebView()
             log.trace("makeNSView(context _: Context)")
+
+            return WKWebView()
         }
 
         func updateNSView(_ webView: WKWebView, context: Context) {
