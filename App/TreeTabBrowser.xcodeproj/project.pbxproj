@@ -635,7 +635,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		9AE7B18C29D9810000314E3C /* XCRemoteSwiftPackageReference "TreeTabBrowser" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Users/standard/STCData/TreeTabBrowser";
+			repositoryURL = "file://../";
 			requirement = {
 				branch = main;
 				kind = branch;
