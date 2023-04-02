@@ -18,30 +18,6 @@ public struct BrowserView: View {
     @State var webViewBlurRadius: CGFloat = 0
     @State var webViewPaddingLeading: CGFloat = 0
 
-    static var sidebarOpenedWidth: Double {
-        #if os(iOS) || os(watchOS) || os(tvOS)
-            UIScreen.main.bounds.size.width * 0.99
-        #else
-            300.0
-        #endif
-    }
-
-    static var sidebarOpenedWebviewPaddingLeading: Double {
-        #if os(iOS) || os(watchOS) || os(tvOS)
-            0.0
-        #else
-            sidebarOpenedWidth
-        #endif
-    }
-
-    static var sidebarOpenedBlur: Double {
-        #if os(iOS) || os(watchOS) || os(tvOS)
-            13.0
-        #else
-            0.0
-        #endif
-    }
-
     public init() {}
 
     public var body: some View {
