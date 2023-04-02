@@ -23,6 +23,7 @@ public struct BrowserView: View {
     private var unsafeAreaColor = unsafeAreaColorDefault
 
     @State var webViewBlurRadius: CGFloat = 0
+    @State var webViewPaddingLeading: CGFloat = 0
 
     private static let unsafeAreaColorDefault = Color.black.opacity(0.96)
     private static let unsafeAreaColorTapped = Color.white
@@ -33,6 +34,15 @@ public struct BrowserView: View {
         UIScreen.main.bounds.size.width * 0.99
 #else
         300.0
+#endif
+    }
+    
+    
+    static var sidebarOpenedWebviewPaddingLeading: Double {
+#if os(iOS) || os(watchOS) || os(tvOS)
+        0.0
+#else
+        sidebarOpenedWidth
 #endif
     }
     
@@ -66,11 +76,19 @@ public struct BrowserView: View {
 
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
                 .blur(radius: webViewBlurRadius)
+                .padding(.leading, webViewPaddingLeading)
                 .valueChanged(of: isSideBarOpened, perform: { value in
                     if value {
-                        withAnimation { webViewBlurRadius = Self.sidebarOpenedBlur }
+                        withAnimation {
+                            webViewBlurRadius = Self.sidebarOpenedBlur
+                            webViewPaddingLeading = Self.sidebarOpenedWebviewPaddingLeading
+                            
+                        }
                     } else {
-                        withAnimation { webViewBlurRadius = 0 }
+                        withAnimation {
+                            webViewBlurRadius = 0
+                            webViewPaddingLeading = 0
+                        }
                     }
                 })
 
