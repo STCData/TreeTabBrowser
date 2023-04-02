@@ -29,8 +29,13 @@ import SwiftUI
 #endif
 
 class WebTabsViewModel: ObservableObject {
+    private let maximumLoadedTabs = 3
+    
     @Published
     var tabs: [WebTab] = []
+    
+    @Published
+    var loadedTabs: [WebTab] = []
 
     @Published
     var currentTab: WebTab? = nil
@@ -62,7 +67,12 @@ class WebTabsViewModel: ObservableObject {
     }
 
     func selectTab(_ tab: WebTab) {
-        currentTab = tab // fixme check if present
+        if loadedTabs.contains(tab) {
+            loadedTabs.remove(at: loadedTabs.firstIndex(of: tab)!)
+        }
+        tab.timestamp = Date()
+        addToLoadedTabs(tab)
+        currentTab = tab
     }
 
     func openTab(request: URLRequest, fromTab parentTab: WebTab?) {
@@ -76,7 +86,17 @@ class WebTabsViewModel: ObservableObject {
         } else {
             tabs.append(newTab)
         }
+        
+        addToLoadedTabs(newTab)
+        
         selectTab(newTab)
+    }
+    
+    func addToLoadedTabs(_ tab: WebTab) {
+        var newLoadedTabs = loadedTabs
+        newLoadedTabs.append(tab)
+        newLoadedTabs.sort { $0.timestamp < $1.timestamp }
+        loadedTabs = newLoadedTabs.suffix(maximumLoadedTabs)
     }
 
     static func googleRequestFrom(_ searchTerm: String) -> URLRequest? {
@@ -100,3 +120,5 @@ class WebTabsViewModel: ObservableObject {
         return URLRequest(url: url)
     }
 }
+
+

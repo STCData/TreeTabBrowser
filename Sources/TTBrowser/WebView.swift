@@ -18,19 +18,15 @@ private let log = MakeLogger()
         @EnvironmentObject
         var tabsViewModel: WebTabsViewModel
 
-        var request: URLRequest
+        var tab: WebTab
 
         func makeUIView(context _: Context) -> WKWebView {
             return WKWebView()
         }
 
         func updateUIView(_ webView: WKWebView, context: Context) {
-            webView.uiDelegate = context.coordinator
-            webView.navigationDelegate = context.coordinator
+            updateCoordinatorAndReloadIfNeccessary(webView, coordinator: context.coordinator)
 
-            DispatchQueue.main.async {
-                webView.load(request)
-            }
         }
     }
 
@@ -40,7 +36,7 @@ private let log = MakeLogger()
         @EnvironmentObject
         var tabsViewModel: WebTabsViewModel
 
-        var request: URLRequest
+        var tab: WebTab
 
         func makeNSView(context _: Context) -> WKWebView {
             log.trace("makeNSView(context _: Context)")
@@ -49,20 +45,37 @@ private let log = MakeLogger()
         }
 
         func updateNSView(_ webView: WKWebView, context: Context) {
-            webView.uiDelegate = context.coordinator
-            webView.navigationDelegate = context.coordinator
+            updateCoordinatorAndReloadIfNeccessary(webView, coordinator: context.coordinator)
 
-            log.trace("updateNSView(_ webView: WKWebView, context: Context)")
 
-            DispatchQueue.main.async {
-                webView.load(request)
-            }
         }
     }
 
 #else
 
 #endif
+
+extension WebView {
+    var request: URLRequest {
+        tab.urlRequest
+    }
+}
+
+extension WebView {
+    func updateCoordinatorAndReloadIfNeccessary(_ webView: WKWebView, coordinator:WebViewCoordinator) {
+        webView.uiDelegate = coordinator
+        webView.navigationDelegate = coordinator
+
+        if coordinator.tab != tab {
+            coordinator.tab = tab
+            DispatchQueue.main.async {
+                webView.load(request)
+
+            }
+        }
+    }
+}
+
 
 extension WebView {
     func makeCoordinator() -> WebViewCoordinator {

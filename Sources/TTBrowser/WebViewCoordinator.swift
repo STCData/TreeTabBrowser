@@ -12,6 +12,11 @@ private let log = MakeLogger()
 
 class WebViewCoordinator: NSObject, WKUIDelegate {
     weak var tabsViewModel: WebTabsViewModel?
+    
+    weak var tab: WebTab?
+    
+    private var isInitialLoad = true
+
 
     var parent: WebView
 
@@ -43,7 +48,7 @@ class WebViewCoordinator: NSObject, WKUIDelegate {
 
 extension WebViewCoordinator: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
-        guard let webTab = tabsViewModel?.currentTab, // fixme
+        guard let webTab = tab, 
               let title = webView.title else { return }
 
         NotificationCenter.default.post(name: .WebViewDetailsLoaded, object: nil, userInfo: [
@@ -53,7 +58,7 @@ extension WebViewCoordinator: WKNavigationDelegate {
     }
 
     func webView(_: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if navigationAction.navigationType == WKNavigationType.linkActivated {
+        if navigationAction.navigationType == WKNavigationType.linkActivated && !isInitialLoad {
             let url = navigationAction.request.url
             log.info("🌐 \(url?.absoluteString ?? "n/a")")
 
@@ -62,11 +67,11 @@ extension WebViewCoordinator: WKNavigationDelegate {
                     tabsViewModel.openTab(request: navigationAction.request, fromTab: tabsViewModel.currentTab)
                 }
             }
-            decisionHandler(WKNavigationActionPolicy.allow)
+            decisionHandler(WKNavigationActionPolicy.cancel)
             return
         }
-        log.info("🌐 no link")
 
+        isInitialLoad = false
         decisionHandler(WKNavigationActionPolicy.allow)
     }
 }

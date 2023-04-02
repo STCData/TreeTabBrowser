@@ -7,12 +7,7 @@
 
 import SwiftUI
 
-struct TabbedWebView: View {
-    var request: URLRequest
-    var body: some View {
-        WebView(request: request)
-    }
-}
+
 
 public struct BrowserView: View {
 
@@ -74,7 +69,7 @@ public struct BrowserView: View {
                     .edgesIgnoringSafeArea(.all)
             }
 
-            TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
+            TabbedWebView(webTabsViewModel: webTabsViewModel)
                 .blur(radius: webViewBlurRadius)
                 .padding(.leading, webViewPaddingLeading)
                 .valueChanged(of: isSideBarOpened, perform: { value in

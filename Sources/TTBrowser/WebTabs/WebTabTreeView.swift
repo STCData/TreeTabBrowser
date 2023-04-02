@@ -35,6 +35,13 @@ struct WebTabTreeItemInner: View {
                 .minimumScaleFactor(0.4)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
+            if webTabsViewModel.loadedTabs.contains(tab) {
+                Image(systemName: "memorychip")
+                    .resizable()
+                    .foregroundColor(Color(red: 0.8, green: 0.7, blue: 0.8))
+                    .rotationEffect(.degrees(-90))
+                    .frame(width: 6, height: 6)
+            }
         }
         .padding(3)
         .if(tab == webTabsViewModel.currentTab) { $0.background(Color(wkColor: .systemGray))

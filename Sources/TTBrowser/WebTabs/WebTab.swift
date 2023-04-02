@@ -54,6 +54,9 @@ class WebTab: Hashable, Identifiable, ObservableObject, CustomStringConvertible 
     }
 
     var id = UUID()
+    
+    var timestamp = Date()
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
@@ -129,3 +132,5 @@ extension WebTab {
 extension WebTab {
     static let blankPageURL = URL(string: "https://stcdata.github.io/STCData")!
 }
+
+
