@@ -10,7 +10,8 @@ import TTBrowser
 
 struct ContentView: View {
     var body: some View {
-        BrowserView()
+        Text("xx")
+//        BrowserView()
     }
 }
 
