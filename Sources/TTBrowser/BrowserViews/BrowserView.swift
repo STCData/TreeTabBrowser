@@ -15,14 +15,8 @@ public struct BrowserView: View {
     ])
     @State private var isSideBarOpened = false
 
-    @State
-    private var unsafeAreaColor = unsafeAreaColorDefault
-
     @State var webViewBlurRadius: CGFloat = 0
     @State var webViewPaddingLeading: CGFloat = 0
-
-    private static let unsafeAreaColorDefault = Color.black.opacity(0.96)
-    private static let unsafeAreaColorTapped = Color.white
 
     static var sidebarOpenedWidth: Double {
         #if os(iOS) || os(watchOS) || os(tvOS)
@@ -52,18 +46,9 @@ public struct BrowserView: View {
 
     public var body: some View {
         ZStack(alignment: .top) {
-            if #available(iOS 14.0, *) {
-                Color(.white)
-                    .colorMultiply(self.unsafeAreaColor)
-                    .ignoresSafeArea()
-                    .accessibilityIgnoresInvertColors(true)
-                    .allowsHitTesting(false)
-            } else {
-                Color(.white)
-                    .colorMultiply(self.unsafeAreaColor)
-                    .allowsHitTesting(false)
-                    .edgesIgnoringSafeArea(.all)
-            }
+            Color(.white)
+                .allowsHitTesting(false)
+                .edgesIgnoringSafeArea(.all)
 
             TabbedWebView(webTabsViewModel: webTabsViewModel)
                 .blur(radius: webViewBlurRadius)
