@@ -37,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		9A73088529D98F29004C106A /* TreeTabBrowser */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TreeTabBrowser; path = ..; sourceTree = "<group>"; };
+		9AB9C5C629D9916A00B377F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AE7B15629D966BC00314E3C /* TreeTabBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeTabBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE7B15929D966BC00314E3C /* TreeTabBrowserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTabBrowserApp.swift; sourceTree = "<group>"; };
 		9AE7B15B29D966BC00314E3C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 				9AE7B15D29D966BD00314E3C /* Assets.xcassets */,
 				9AE7B15F29D966BD00314E3C /* TreeTabBrowser.entitlements */,
 				9AE7B16029D966BD00314E3C /* Preview Content */,
+				9AB9C5C629D9916A00B377F5 /* Info.plist */,
 			);
 			path = TreeTabBrowser;
 			sourceTree = "<group>";
@@ -440,6 +442,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TreeTabBrowser/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -478,6 +481,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TreeTabBrowser/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
