@@ -23,12 +23,15 @@ enum TreeTabBrowserAppAppWrapper {
         if #available(iOS 14.0, *) {
             TreeTabBrowserApp.main()
         } else {
-            UIApplicationMain(
-                CommandLine.argc,
-                CommandLine.unsafeArgv,
-                nil,
-                NSStringFromClass(AppDelegate.self)
-            )
+            #if os(iOS) || os(watchOS) || os(tvOS)
+
+                UIApplicationMain(
+                    CommandLine.argc,
+                    CommandLine.unsafeArgv,
+                    nil,
+                    NSStringFromClass(AppDelegate.self)
+                )
+            #endif
         }
     }
 }

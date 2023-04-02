@@ -8,17 +8,15 @@
 import SwiftUI
 
 public struct BrowserView: View {
-    @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [
-        WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL1)),
-        WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL2)),
-        WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL3)),
-    ])
+    @ObservedObject var webTabsViewModel: WebTabsViewModel
     @State private var isSideBarOpened = false
 
     @State var webViewBlurRadius: CGFloat = 0
     @State var webViewPaddingLeading: CGFloat = 0
 
-    public init() {}
+    public init(webTabsViewModel: WebTabsViewModel) {
+        self.webTabsViewModel = webTabsViewModel
+    }
 
     public var body: some View {
         ZStack(alignment: .top) {
@@ -69,13 +67,18 @@ public struct BrowserView: View {
             }
         }
         .environmentObject(webTabsViewModel)
-//        .padding(.top, 30)
+        .padding(.top, 30)
         .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct BrowserView_Previews: PreviewProvider {
     static var previews: some View {
-        BrowserView()
+        let webTabsViewModel = WebTabsViewModel(tabs: [
+            WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL1)),
+            WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL2)),
+            WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL3)),
+        ])
+        BrowserView(webTabsViewModel: webTabsViewModel)
     }
 }

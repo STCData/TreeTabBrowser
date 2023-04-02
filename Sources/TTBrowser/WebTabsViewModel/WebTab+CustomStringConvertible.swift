@@ -8,7 +8,7 @@
 import Foundation
 
 extension WebTab: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return (title ?? urlRequest.url?.absoluteString) ?? "n/a"
     }
 }

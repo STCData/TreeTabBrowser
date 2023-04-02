@@ -28,7 +28,7 @@ import SwiftUI
 
 #endif
 
-class WebTabsViewModel: ObservableObject {
+public class WebTabsViewModel: ObservableObject {
     private let maximumLoadedTabs = 3
 
     @Published
@@ -40,7 +40,7 @@ class WebTabsViewModel: ObservableObject {
     @Published
     var currentTab: WebTab? = nil
 
-    init(tabs: [WebTab]) {
+    public init(tabs: [WebTab]) {
         self.tabs = tabs
         loadedTabs = tabs
 

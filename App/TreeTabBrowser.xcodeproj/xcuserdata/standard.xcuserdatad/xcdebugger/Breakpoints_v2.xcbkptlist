@@ -167,49 +167,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "30DD646D-FBFF-4144-A574-1B8F9A20AB86"
+            uuid = "FE8C4A2F-DB99-4DE9-9006-638AA4973AAD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TreeTabBrowser/SceneDelegate+iOS.swift"
+            filePath = "../Sources/TTBrowser/WebTabsViewModel/WebTabsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "scene(_:willConnectTo:options:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "init(tabs:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "30DD646D-FBFF-4144-A574-1B8F9A20AB86 - c7926c1e3491d303"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TreeTabBrowser.SceneDelegate.scene(_: __C.UIScene, willConnectTo: __C.UISceneSession, options: __C.UISceneConnectionOptions) -&gt; ()"
-                  moduleName = "TreeTabBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/standard/STCData/TreeTabBrowser/App/TreeTabBrowser/SceneDelegate+iOS.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "162">
-               </Location>
-               <Location
-                  uuid = "30DD646D-FBFF-4144-A574-1B8F9A20AB86 - c7926c1e3491d303"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TreeTabBrowser.SceneDelegate.scene(_: __C.UIScene, willConnectTo: __C.UISceneSession, options: __C.UISceneConnectionOptions) -&gt; ()"
-                  moduleName = "TreeTabBrowser"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/standard/STCData/TreeTabBrowser/App/TreeTabBrowser/SceneDelegate+iOS.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "260">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DFC8DF7-5300-43EF-B71E-5DB0DD714065"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Sources/TTBrowser/WebTabsViewModel/WebTabsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "init(tabs:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

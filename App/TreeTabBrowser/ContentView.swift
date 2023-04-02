@@ -9,9 +9,12 @@ import SwiftUI
 import TTBrowser
 
 struct ContentView: View {
+    let webTabsViewModel = WebTabsViewModel(tabs: [
+        WebTab(urlRequest: URLRequest(url: URL(string: "https://google.uk")!)),
+        WebTab(urlRequest: URLRequest(url: URL(string: "https://wikipedia.org")!)),
+    ])
     var body: some View {
-        Text("xx")
-//        BrowserView()
+        BrowserView(webTabsViewModel: webTabsViewModel)
     }
 }
 

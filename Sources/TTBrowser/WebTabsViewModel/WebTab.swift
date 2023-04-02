@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class WebTab: Identifiable, ObservableObject {
+public class WebTab: Identifiable, ObservableObject {
     @Published
     var faviconImage: WKImage? = nil
 
@@ -27,18 +27,18 @@ class WebTab: Identifiable, ObservableObject {
         .pink,
     ].randomElement()!
 
-    let id = UUID()
+    public let id = UUID()
 
     var timestamp = Date()
 
     let urlRequest: URLRequest
 
-    init(urlRequest: URLRequest) {
+    public init(urlRequest: URLRequest) {
         self.urlRequest = urlRequest
         setDefaultFavIcon()
     }
 
-    init(title: String, url: URL, children: [WebTab]? = nil) {
+    public init(title: String, url: URL, children: [WebTab]? = nil) {
         self.title = title
         urlRequest = URLRequest(url: url)
         self.children = children
