@@ -129,8 +129,6 @@ extension WebTab {
     }
 }
 
-extension WebTab {
-    static let blankPageURL = URL(string: "https://stcdata.github.io/STCData")!
-}
+
 
 

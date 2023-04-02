@@ -42,6 +42,7 @@ class WebTabsViewModel: ObservableObject {
 
     init(tabs: [WebTab]) {
         self.tabs = tabs
+        self.loadedTabs = tabs
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleWebViewDetailsLoadedNotification(_:)), name: .WebViewDetailsLoaded, object: nil)
     }
